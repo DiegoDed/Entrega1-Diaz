@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE-EDGE">
+        <meta name="viewport" content="width=devide-width, initial-scale=1.0">
+        <title>Formulario Busqueda Pelicula</title>
+    </head>
+    <body>
+
+        {% if peliculas %}
+
+        <p>Estamos buscando la pelicula: {{pelicula}}</p>
+
+        <ul>
+	        {% for pelicula in peliculas %}
+		        <li> {{pelicula.titulo}} </li>
+		        <li> {{pelicula.genero}} </li>
+                <li> {{pelicula.duracion}} </li>
+	        {% endfor %}
+
+        </ul>
+    {% else %}
+    {% endif %}
+    <p style='color:red;'> {{respuesta}}</p>
+
+    </body>
+    </html>

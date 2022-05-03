@@ -1,0 +1,37 @@
+{% extends "AppPelis/padre.html" %}
+
+{% load static %}
+
+{% block contenidoQueCambia %}
+<h1 class="mx-auto my-0 text-uppercase">Bienvenidos</h1>
+
+
+    <h3>Buscar una Pelicula:</h3>
+
+    <form action="/AppPelis/buscar/" method="GET">
+
+        <input type="text" name="pelicula" id="pelicula">
+        <br>
+        <br>
+        <input class="btn btn-primary" type="submit" value="Buscar">
+
+    </form>
+    
+    {% if peliculas %}
+
+    <p>Estamos buscando la pelicula: {{pelicula}}</p>
+
+    <ul>
+        {% for pelicula in peliculas %}
+            <li> {{pelicula.titulo}} </li>
+            <li> {{pelicula.genero}} </li>
+            <li> {{pelicula.duracion}} </li>
+        {% endfor %}
+
+    </ul>
+{% else %}
+{% endif %}
+<p style='color:red;'> {{respuesta}}</p>
+
+
+{% endblock %}
